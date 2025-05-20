@@ -23,4 +23,4 @@ npm run dev
 
 This site is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
 
-Visit the live site at: https://[your-github-username].github.io/web-resume-chatllm/
+Visit the live site at: [page](https://blakelin-lsy.github.io/web-resume-chatllm/)
