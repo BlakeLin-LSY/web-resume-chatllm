@@ -9,6 +9,7 @@ import Experience from "@/components/experience";
 import Education from "@/components/education";
 import Contact from "@/components/contact";
 import LifeDevotions from "@/components/life-devotions";
+import Interests from "@/components/interests";
 
 export default function Home() {
   const [aboutRef, aboutInView] = useInView({
@@ -27,6 +28,11 @@ export default function Home() {
   });
 
   const [educationRef, educationInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [interestsRef, interestsInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -90,12 +96,23 @@ export default function Home() {
       </motion.div>
       
       <motion.div
+        ref={interestsRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={interestsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.5 }}
+        id="interests"
+        className="py-16 bg-secondary/30 dark:bg-secondary/10"
+      >
+        <Interests />
+      </motion.div>
+      
+      <motion.div
         ref={devotionsRef}
         initial={{ opacity: 0, y: 50 }}
         animate={devotionsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.5 }}
         id="life-devotions"
-        className="py-16 bg-secondary/30 dark:bg-secondary/10"
+        className="py-16"
       >
         <LifeDevotions />
       </motion.div>
@@ -106,7 +123,7 @@ export default function Home() {
         animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.5 }}
         id="contact"
-        className="py-16"
+        className="py-16 bg-secondary/30 dark:bg-secondary/10"
       >
         <Contact />
       </motion.div>
