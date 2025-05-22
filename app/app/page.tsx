@@ -8,6 +8,7 @@ import Skills from "@/components/skills";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
 import Contact from "@/components/contact";
+import LifeDevotions from "@/components/life-devotions";
 
 export default function Home() {
   const [aboutRef, aboutInView] = useInView({
@@ -26,6 +27,11 @@ export default function Home() {
   });
 
   const [educationRef, educationInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [devotionsRef, devotionsInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -84,12 +90,23 @@ export default function Home() {
       </motion.div>
       
       <motion.div
+        ref={devotionsRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={devotionsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.5 }}
+        id="life-devotions"
+        className="py-16 bg-secondary/30 dark:bg-secondary/10"
+      >
+        <LifeDevotions />
+      </motion.div>
+      
+      <motion.div
         ref={contactRef}
         initial={{ opacity: 0, y: 50 }}
         animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.5 }}
         id="contact"
-        className="py-16 bg-secondary/30 dark:bg-secondary/10"
+        className="py-16"
       >
         <Contact />
       </motion.div>

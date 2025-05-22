@@ -10,6 +10,7 @@ const navItems = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Education", href: "#education" },
+  { name: "Life Devotions", href: "#life-devotions" },
   { name: "Contact", href: "#contact" },
 ];
 
