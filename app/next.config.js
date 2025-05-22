@@ -5,7 +5,7 @@ const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   output: 'export',  // Set output to export for static site generation
   basePath: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm/' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm' : '', // Corrected: no trailing slash
   outputFileTracingRoot: path.join(__dirname, '../'),
   eslint: {
     ignoreDuringBuilds: true,
