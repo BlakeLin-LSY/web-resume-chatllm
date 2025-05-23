@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { Heart, Code, Activity } from "lucide-react";
 import Image from "next/image";
 
-export default function LifeDevotions() {
+export default function LifeDevotions() {  
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="section-container">
       <motion.div
@@ -28,7 +30,8 @@ export default function LifeDevotions() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative h-64 md:h-full w-full">
               <Image
-                src="/leetcode_streak.png"
+                // src="/leetcode_streak.png"
+                src={`${basePath}/leetcode_streak.png`}
                 alt="LeetCode Streak"
                 fill
                 style={{ objectFit: "cover" }}
@@ -67,7 +70,8 @@ export default function LifeDevotions() {
           >
             <div className="relative h-80 sm:h-96 md:h-[40rem] w-full">
               <Image
-                src="/marathon_42k.jpg"
+                // src="/marathon_42k.jpg"
+                src={`${basePath}/marathon_42k.jpg`}
                 alt="Marathon 42K"
                 fill
                 style={{ objectFit: "cover" }}
@@ -93,7 +97,8 @@ export default function LifeDevotions() {
           >
             <div className="relative h-80 sm:h-96 md:h-[40rem] w-full">
               <Image
-                src="/trail_run.jpg"
+                // src="/trail_run.jpg"
+                src={`${basePath}/trail_run.jpg`}
                 alt="Trail Running"
                 fill
                 style={{ objectFit: "cover" }}

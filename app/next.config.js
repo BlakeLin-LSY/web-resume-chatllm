@@ -1,11 +1,20 @@
 const path = require('path');
 
+const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/web-resume-chatllm' : '';
+const assetPrefix = isProd ? '/web-resume-chatllm' : ''; // Ensure this remains without a trailing slash
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   output: 'export',  // Set output to export for static site generation
-  basePath: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm/' : '',
+  // basePath: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/web-resume-chatllm/' : '',
+  basePath: basePath,
+  assetPrefix: assetPrefix, // Corrected: no trailing slash
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   outputFileTracingRoot: path.join(__dirname, '../'),
   eslint: {
     ignoreDuringBuilds: true,
